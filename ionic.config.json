@@ -1,0 +1,7 @@
+{
+  "name": "movilist",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
