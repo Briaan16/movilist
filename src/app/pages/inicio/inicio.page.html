@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>inicio</ion-title>
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title mode="md" class="ion-text-center">Inicio</ion-title>
+    <ion-icon name="menu" slot="start" class="ion-padding" size="large"></ion-icon>
+    <ion-icon name="person-outline" class="ion-padding" slot="end" size="large"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="page-inicio">
+  <div class="message-box">
+    <p>
+      La solución perfecta para registrar la asistencia en tus clases de manera rápida y eficiente. 
+      Utiliza tu dispositivo móvil para escanear el código QR generado por tu docente y regístrate en la clase automáticamente.
+    </p>
+    <ion-button expand="full" color="primary" class="login-button">
+      <ion-icon name="log-in-outline" slot="start"></ion-icon>
+      <span>Iniciar sesión</span>
+    </ion-button>
+  </div>
 </ion-content>

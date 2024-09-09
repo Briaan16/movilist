@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: PagesPage
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -24,17 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./escaneo/escaneo.module').then( m => m.EscaneoPageModule)
   },
   {
-    path: 'guardar',
-    loadChildren: () => import('./guardar/guardar.module').then( m => m.GuardarPageModule)
-  },
-  {
     path: 'listo',
     loadChildren: () => import('./listo/listo.module').then( m => m.ListoPageModule)
   },
-  {
-    path: 'config',
-    loadChildren: () => import('./config/config.module').then( m => m.ConfigPageModule)
-  },
+  
   {
     path: 'configu',
     loadChildren: () => import('./configu/configu.module').then( m => m.ConfiguPageModule)
