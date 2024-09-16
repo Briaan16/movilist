@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+
+  <ion-text color="primary" class="ion-text-center">
+    <h1>Inicio de Sesión</h1>
+    <ion-list>
+      <form #miForm="ngForm" >
+        <ion-item>
+          <ion-input type="text" required label="Nombre de Usuario" labelPlacement="floating" placeholder="usuario" name='usuario'  ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" required label="Contraseña" labelPlacement="floating" placeholder="*******" name="pass" ></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" fill="solid" color="tertiary" [disabled]="miForm.invalid">
+          Iniciar Sesión
+        </ion-button>
+
+      </form>
+    </ion-list>
+  </ion-text>
+</ion-content>

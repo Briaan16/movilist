@@ -5,13 +5,16 @@ import { PagesPage } from './pages.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: PagesPage
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  
+  {
+    path: '',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
@@ -32,7 +35,8 @@ const routes: Routes = [
   {
     path: 'configu',
     loadChildren: () => import('./configu/configu.module').then( m => m.ConfiguPageModule)
-  },  {
+  },
+  {
     path: 'docente',
     loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule)
   },
