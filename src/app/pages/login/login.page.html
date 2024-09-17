@@ -1,21 +1,23 @@
-<ion-content class="ion-padding">
-
-  <ion-text color="primary" class="ion-text-center">
-    <h1>Inicio de Sesión</h1>
-    <ion-list>
-      <form #miForm="ngForm" >
-        <ion-item>
-          <ion-input type="text" required label="Nombre de Usuario" labelPlacement="floating" placeholder="usuario" name='usuario'  ></ion-input>
-          
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="warning">Inicio Sesión</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <ion-item>
+              <ion-label position="floating">Correo Institucional</ion-label>
+              <ion-input type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input type="password" required label="Contraseña" labelPlacement="floating" placeholder="*******" name="pass" ></ion-input>
-        </ion-item>
-        <ion-button type="submit" expand="block" fill="solid" color="tertiary" [disabled]="miForm.invalid">
-          Iniciar Sesión
-        </ion-button>
-
-      </form>
-    </ion-list>
-  </ion-text>
+        <ion-button color="dark" fill="clear" size="full">¿Olvidó Contraseña?</ion-button>
+        <ion-button color="warning"  size="full">Entrar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
 </ion-content>
