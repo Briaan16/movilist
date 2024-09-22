@@ -1,13 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>listo</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">listo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="warning">¡Operaciones relizadas con éxito!</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>
+          Su registro de asistencia fue ejecutado exitosamente.
+        </p>
+        <ion-button color="warning" routerLink="/inicio">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          <span>Volver al Inicio</span>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
