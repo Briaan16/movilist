@@ -5,9 +5,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">reportar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Reportar un problema en la Aplicación</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Cuéntanos tu problema</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-card-content>
+      <ion-button size="full" routerLink="/inicio">
+        Enviar respuesta
+      </ion-button>
+    </ion-card>
+  </div>
 </ion-content>
