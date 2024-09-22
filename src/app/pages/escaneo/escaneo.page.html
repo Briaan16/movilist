@@ -1,8 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>escaneo</ion-title>
+    <ion-title>Escaneo</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -10,4 +25,7 @@
       <ion-title size="large">escaneo</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="image-container">
+    <img src="assets/es.png" alt="scaner QR" />
+  </div>
 </ion-content>
