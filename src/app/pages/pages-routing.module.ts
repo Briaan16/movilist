@@ -48,6 +48,14 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'asignaturas',
+    loadChildren: () => import('./asignaturas/asignaturas.module').then( m => m.AsignaturasPageModule)
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   }
 
 
