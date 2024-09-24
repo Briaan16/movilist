@@ -1,5 +1,3 @@
--------------------
-
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
@@ -7,6 +5,8 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
+    <div class="background">
+    </div>
     <ion-list>
       <ion-item button routerLink="/asignaturas">
         <ion-label>Asignaturas</ion-label>
@@ -21,21 +21,6 @@
   </ion-content>
 </ion-menu>
 
-<style>
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
-
-
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -45,12 +30,35 @@
       <ion-title>RegistrAPP</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content>
     <div class="flex-center">
-      <ion-content [fullscreen]="true">
+      <ion-content>
+        <div class="background">
+        </div>
         <ion-card class="asignaturas" routerLink="/codigo">
           <ion-text color="primary" class="ion-text-center">
             <h1>Asignatura 1</h1>
+          </ion-text>
+        </ion-card>
+        <ion-card class="asignaturas" routerLink="/codigo">
+          <ion-text color="primary" class="ion-text-center">
+            <h1>Asignatura 2</h1>
+          </ion-text>
+        </ion-card>
+        <ion-card class="asignaturas" routerLink="/codigo">
+          <ion-text color="primary" class="ion-text-center">
+            <h1>Asignatura 3</h1>
+          </ion-text>
+        </ion-card>
+        <ion-card class="asignaturas" routerLink="/codigo">
+          <ion-text color="primary" class="ion-text-center">
+            <h1>Asignatura 4</h1>
+          </ion-text>
+        </ion-card>
+        <ion-card class="asignaturas" routerLink="/codigo">
+          <ion-text color="primary" class="ion-text-center">
+            <h1>Asignatura 5</h1>
           </ion-text>
         </ion-card>
       </ion-content>

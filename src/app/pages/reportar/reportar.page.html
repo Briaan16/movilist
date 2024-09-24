@@ -4,7 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <div class="background">
+  </div>
   <div class="flex-center">
     <ion-card>
       <ion-card-header>
@@ -16,7 +18,7 @@
           <ion-input type="text"></ion-input>
         </ion-item>
       </ion-card-content>
-      <ion-button size="full" routerLink="/inicio">
+      <ion-button  color="warning" size="full" routerLink="/inicio">
         Enviar respuesta
       </ion-button>
     </ion-card>
