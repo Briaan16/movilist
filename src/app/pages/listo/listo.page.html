@@ -4,7 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content >
+  <div class="background">
+  </div>
   <div class="flex-center">
     <ion-card>
       <ion-card-header>
@@ -13,7 +15,7 @@
 
       <ion-card-content>
         <p>
-          Su registro de asistencia fue ejecutado exitosamente.
+          Su registro de asistencia fue ejecutado exitosamente el dia [INSERTE DÍA] a las [INSERTE HORA] en la asignatura [INSERTE ASIGNATURA].
         </p>
         <ion-button color="warning" routerLink="/inicio">
           <ion-icon name="log-in-outline" slot="start"></ion-icon>
