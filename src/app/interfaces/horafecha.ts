@@ -1,8 +1,6 @@
-export interface Categorias {
-    categories: Categoria[];
-}
 
-export interface Categoria {
+
+export interface Hora {
   utc_offset: string;
   timezone: string;
   day_of_week: number;
