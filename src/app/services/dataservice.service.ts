@@ -6,7 +6,7 @@ import { Hora } from '../interfaces/horafecha';
   providedIn: 'root'
 })
 
-// github del profe
+// github del profe (estas son las apis i think)
 export class DataserviceService {
 
   constructor(private httpclient:HttpClient) { }
