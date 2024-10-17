@@ -1,4 +1,7 @@
-export interface usuarioLog{
+export interface Usuario{
     username:string,
-    password:string
+    password:string,
+    nombre:string,
+    apellido:string,
+    correo:string,
 }
