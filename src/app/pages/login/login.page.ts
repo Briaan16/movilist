@@ -35,12 +35,12 @@ export class LoginPage implements OnInit {
     await toast.present();
   }
   logear(){
-    let buscado = this.db.obtener(this.usr.username)
+    let buscado = this.db.obtener(this.usr.correo)
 
     buscado.then(datos => {
       if (datos !== null) {
         //clg(datos.username)
-        if(datos.username===this.usr.username && datos.password===this.usr.password){
+        if(datos.correo===this.usr.correo && datos.password===this.usr.password){
           this.router.navigate(['/inicio'])
         }
       } else {

@@ -1,51 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Registro</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light" class="ion-text-center">
+      RegistrApp
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>¿Eres Alumno o Docente?</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-radio-group>
-        <ion-item>
-          <ion-label>Alumno</ion-label>
-          <ion-radio value="alumno"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Docente</ion-label>
-          <ion-radio value="docente"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Contacto</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Correo Institucional</ion-label>
-        <ion-input type="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Nombre Completo</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Confirmar Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-button size="full" color="warning" routerLink="/login">
-    Registrarse
+<ion-content class="ion-padding" >
+<ion-text color="secondary" class="ion-text-center" >
+  <h1>Registro de Usuario</h1>
+</ion-text>
+<form #registroForm="ngForm" (ngSubmit)="registrar()">
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Usuario" name="text" type="text" [(ngModel)]="usr.username" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Correo" name="text" type="email" [(ngModel)]="usr.correo" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Contraseña" name="password" type="password" [(ngModel)]="usr.password" >
+      <!-- <ion-input-password-toggle slot="end"></ion-input-password-toggle> -->
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Nombre" name="password" type="text" [(ngModel)]="usr.nombre" >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Apellido" name="apellido" type="text" [(ngModel)]="usr.apellido" >
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" type="submit" [disabled]="registroForm.invalid" class="ion-padding">
+    <ion-text color="light">
+      Registrarse
+    </ion-text>
   </ion-button>
+</form>
+
+<ion-text color="tertiary" class="ion-text-center" routerLink="/login">
+  <p>Volver a login</p>
+</ion-text>
+
+
+
 </ion-content>

@@ -1,28 +1,33 @@
-<ion-toolbar>
-  <ion-title>RegistrAPP</ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light" class="ion-text-center">
+      RegistrApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
-  <div class="flex-center">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title color="warning">Inicio Sesión</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-          <ion-item>
-              <ion-label position="floating">Correo Institucional</ion-label>
-              <ion-input type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
-        <ion-button color="dark" fill="clear" size="full" routerLink="/configu">¿Olvidó Contraseña?</ion-button>
-        <ion-button color="warning"  size="full" routerLink="/asignaturas">Entrar</ion-button>
-        <ion-button color="dark" fill="clear" size="full" routerLink="/registro">Registrese Aquí</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  
+<ion-content class="ion-padding" >
+<ion-text color="secondary" class="ion-text-center" >
+  <h1>Iniciar Sesión</h1>
+</ion-text>
+<form #loginForm="ngForm" (ngSubmit)="logear()">
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Correo" name="text" type="email" aria-hidden="false" [(ngModel)]="usr.correo" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input required labelPlacement="floating" label="Contraseña" name="password" type="password" aria-hidden="false" [(ngModel)]="usr.password" >
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" type="submit" [disabled]="loginForm.invalid" class="ion-padding">
+    <ion-text color="light">
+      Login
+    </ion-text>
+  </ion-button>
+</form>
+
+<ion-text color="tertiary" class="ion-text-center" routerLink="/registro">
+  <p>Crear un usuario</p>
+</ion-text>
 </ion-content>
