@@ -8,12 +8,16 @@ import { CodigoPageRoutingModule } from './codigo-routing.module';
 
 import { CodigoPage } from './codigo.page';
 
+//para generar qr/?
+import { QrCodeModule } from 'ng-qrcode';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CodigoPageRoutingModule
+    CodigoPageRoutingModule,
+    QrCodeModule
   ],
   declarations: [CodigoPage]
 })

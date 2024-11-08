@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodigoPage implements OnInit {
 
+  segment = 'generate';
+  qrText = 'test123';
+
   constructor() { }
 
   ngOnInit() {
