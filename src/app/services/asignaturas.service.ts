@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData} from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc} from '@angular/fire/firestore';
 import { Asignaturas } from '../interfaces/asignaturas';
 import { Observable } from 'rxjs';
 
@@ -21,5 +21,9 @@ export class AsignaturasService {
     return collectionData(asignaturaRef, { idField: 'id'}) as Observable<Asignaturas[]>;
   }
 
+  eliminarAsignatura(asignatura: Asignaturas){
+    const asignaturaDocRef = doc(this.firestore, 'asignaturas/${asignatura.id}');
+    return deleteDoc(asignaturaDocRef); 
+  }
 
 }
