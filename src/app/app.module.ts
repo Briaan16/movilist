@@ -11,7 +11,9 @@ import { provideHttpClient } from '@angular/common/http';
 //LIBRERIAS , copiarlo de la app del profe, son dos imports i think i forRoot
 import { IonicStorageModule } from '@ionic/storage-angular';
 
-import { AngularFireModule} from 'angular/fire/compat';
+//firebase xd
+import { AngularFireModule} from '@angular/fire/compat';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,8 @@ import { AngularFireModule} from 'angular/fire/compat';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(enviroment.firebaseConfig)],
+    AngularFireModule.initializeApp(environment.firebaseConfig)
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
   bootstrap: [AppComponent],
 })
