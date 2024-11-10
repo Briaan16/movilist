@@ -1,33 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>RegistrAPP</ion-title>
+    <ion-title>RegistrAPP - Escaneo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<style>
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
-
-<div class="flex-center">
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>ESCANEAR CÓDIGO</ion-card-title>
-  
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-button color="warning" size="full" routerLink="/codigo">ESCANEAR</ion-button>
-  </ion-card-content>
-
-</ion-card>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
 
