@@ -11,10 +11,16 @@ import { provideHttpClient } from '@angular/common/http';
 //LIBRERIAS , copiarlo de la app del profe, son dos imports i think i forRoot
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+import { AngularFireModule} from 'angular/fire/compat';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(enviroment.firebaseConfig)],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
   bootstrap: [AppComponent],
 })
