@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
           if (emailDomain === 'duocuc.cl') {
             this.router.navigate(['/alumno']);
           } else if (emailDomain === 'profesor.duoc.cl') {
-            this.router.navigate(['/docente']);
+            this.router.navigate(['/asignaturas']);
           } 
         } else {  
           // Mostrar mensaje de error si la contraseña es incorrecta
