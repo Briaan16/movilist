@@ -1,15 +1,15 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div class="mb-3">
+    <div class="mb-3">
       <label class="form-label">Nombre Asignatura</label>
       <input type="text" class="form-control" formControlName="nombre">
-  </div>
-  <div class="mb-3">
+    </div>
+    <div class="mb-3">
       <label class="form-label">Descripcion</label>
-      <textarea class="form-control" cols="30" rows="10" formControlName="descripcion"></textarea>
-  </div>
-  <div class="mb-3">
+      <textarea class="form-control" formControlName="descripcion"></textarea>
+    </div>
+    <div class="mb-3">
       <label class="form-label">Clases Registradas</label>
       <input type="text" class="form-control" formControlName="clases">
-  </div>
-  <input type="submit" value="Enviar" class="btn btn-info">
-</form>
+    </div>
+    <input type="submit" value="Enviar" class="btn btn-info">
+  </form>
