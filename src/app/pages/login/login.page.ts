@@ -71,4 +71,7 @@ export class LoginPage implements OnInit {
   getEmailDomain(email: string): string {
     return email.substring(email.lastIndexOf('@') + 1);
   }
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 }

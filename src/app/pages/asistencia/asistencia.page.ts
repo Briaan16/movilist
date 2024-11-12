@@ -11,5 +11,7 @@ export class AsistenciaPage implements OnInit {
 
   ngOnInit() {
   }
-
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 }

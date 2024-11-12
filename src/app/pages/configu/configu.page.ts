@@ -43,4 +43,7 @@ export class ConfiguPage implements OnInit {
   private async simulatePasswordReset(email: string, newPassword: string) {
     return new Promise((resolve) => setTimeout(resolve, 1000));
   }
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 }

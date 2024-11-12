@@ -38,5 +38,7 @@ export class ListoPage implements OnInit {
       console.log(this.horas);  
     })
   }
-
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 }

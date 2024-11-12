@@ -72,5 +72,8 @@ export class RegistroPage implements OnInit {
 
     await alert.present();
   }
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 }
 

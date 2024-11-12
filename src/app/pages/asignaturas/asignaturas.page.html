@@ -1,10 +1,10 @@
 <ion-menu contentId="main-content">
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+    <ion-toolbar style="--background: #f6cc26;">
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding" style="--background: #1a4066;">
     <ion-list>
       <ion-item button routerLink="/asignaturas">
         <ion-label>Asignaturas</ion-label>
@@ -24,7 +24,7 @@
 
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar style="--background: #f6cc26;">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -35,9 +35,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content >
     <div class="flex-center">
-      <ion-content>
+      <ion-content style="--background: #1a4066;">
+        <br>
+        <br>
         <ion-card class="asignaturas">
           <ion-accordion-group>
             <ion-accordion value="first ">
@@ -136,4 +138,8 @@
         
       </ion-content>
     </div>
+    <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+      Atrás
+    </ion-button>
   </ion-content>
