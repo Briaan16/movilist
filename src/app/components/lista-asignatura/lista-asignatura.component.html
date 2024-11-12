@@ -1,3 +1,20 @@
-<p>
-  lista-asignatura works!
-</p>
+<div class="places">
+  <div class="place" *ngFor="let asignatura of asignaturas">
+    <div class="info">
+      <h4>{{asignatura.nombre}}</h4>
+      <p>{{asignatura.descripcion}}</p>
+      <p>Clases Registradas: {{asignatura.clases}}</p>
+      <div class="ion-padding" slot="content">
+        <ion-button size="full" color="warning" routerLink="/asistenciageneral">
+          Ver asistencia general
+        </ion-button>
+      </div>
+      <div class="ion-padding" slot="content">
+        <ion-button size="full" color="warning" routerLink="/codigo">
+          Generar Codigo de Asistencia
+        </ion-button>
+      </div>
+      <button class="btn btn-outline-danger" (click)="onClickDelete(asignatura)">Borrar</button>
+    </div>
+  </div>
+</div>

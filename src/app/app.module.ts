@@ -14,15 +14,19 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 //firebase xd
 import { AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
+import { AgregarAsignaturaComponent } from './components/agregar-asignatura/agregar-asignatura.component';
+import { ListaAsignaturaComponent } from './components/lista-asignatura/lista-asignatura.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,AgregarAsignaturaComponent,ListaAsignaturaComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
   bootstrap: [AppComponent],
