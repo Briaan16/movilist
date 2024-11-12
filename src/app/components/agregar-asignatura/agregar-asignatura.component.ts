@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AsignaturasService } from '../../services/asignaturas.service';
 
+
 @Component({
   selector: 'app-agregar-asignatura',
   templateUrl: './agregar-asignatura.component.html',
   styleUrls: ['./agregar-asignatura.component.scss'],
+
 })
 export class AgregarAsignaturaComponent  implements OnInit {
 

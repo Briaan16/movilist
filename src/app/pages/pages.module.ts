@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PagesPageRoutingModule } from './pages-routing.module';
 
 import { PagesPage } from './pages.page';
+//import { AgregarAsignaturaComponent } from '../components/agregar-asignatura/agregar-asignatura.component';
+//import { ListaAsignaturaComponent } from '../components/lista-asignatura/lista-asignatura.component';
 
 @NgModule({
   imports: [
