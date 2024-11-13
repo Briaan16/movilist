@@ -39,23 +39,28 @@
 
 /* #ffcc00; amarillo  #0033a0; azul */
 
-  /*b */
-  .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
-  .background {
-    background-image: url('/assets/aa.jpg'); // Ajusta la ruta según corresponda
-    background-size: cover; // O usa 'contain' si prefieres
-    background-position: center;
-    position: absolute; // Asegúrate de que esté encima
-    top: 0;
-    left: 0;
-    height: 100%; // O '100vh' para ocupar toda la altura
-    width: 100%;
-    z-index: -1; // Debe estar detrás del contenido
+/*b */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
+.background {
+  background-image: url('/assets/aa.jpg'); // Ajusta la ruta según corresponda
+  background-size: cover; // O usa 'contain' si prefieres
+  background-position: center;
+  position: absolute; // Asegúrate de que esté encima
+  top: 0;
+  left: 0;
+  height: 100%; // O '100vh' para ocupar toda la altura
+  width: 100%;
+  z-index: -1; // Debe estar detrás del contenido
+
+
+
+  .add-update-modal {
+    --height: 680px;
+  }
+}

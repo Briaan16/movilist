@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { AgregarAsignaturaComponent } from 'src/app/components/agregar-asignatura/agregar-asignatura.component';
+import { AsignaturasService } from 'src/app/services/asignaturas.service';
 
 @Component({
   selector: 'app-asignaturas',
@@ -7,11 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsignaturasPage implements OnInit {
 
-  constructor() { }
+  utilSvc = inject(AsignaturasService);
 
   ngOnInit() {
   }
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
+
+
+  //para modal agregar asignatura
+  addUpdateAsignatura(){
+
+    this.utilSvc.presentModal({
+      component : AgregarAsignaturaComponent,
+      cssClass: 'add-update-modal'
+    })
   }
 }

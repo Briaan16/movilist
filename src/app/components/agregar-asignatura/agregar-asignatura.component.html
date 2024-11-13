@@ -1,15 +1,22 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label class="form-label">Nombre Asignatura</label>
-      <input type="text" class="form-control" formControlName="nombre">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Descripcion</label>
-      <textarea class="form-control" formControlName="descripcion"></textarea>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Clases Registradas</label>
-      <input type="text" class="form-control" formControlName="clases">
-    </div>
-    <input type="submit" value="Enviar" class="btn btn-info">
-  </form>
+<app-header [isModal]="true" title="Agregar Asignatura"></app-header>
+
+<ion-content>
+  <div class="flex-center">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Nombre Asignatura</label>
+        <input type="text" class="form-control" formControlName="nombre">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Descripcion</label>
+        <textarea class="form-control" formControlName="descripcion"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Clases Registradas</label>
+        <input type="text" class="form-control" formControlName="clases">
+      </div>
+      <input type="submit" value="Enviar" class="btn btn-info">
+    </form>
+  </div>
+</ion-content>
+

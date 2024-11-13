@@ -4,12 +4,13 @@ import { AgregarAsignaturaComponent } from './agregar-asignatura/agregar-asignat
 import { ListaAsignaturaComponent } from './lista-asignatura/lista-asignatura.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';  // Importa IonicModule aquí
+import { HeaderComponent } from './header/header.component';
 
 
 
 
 @NgModule({
-  declarations: [AgregarAsignaturaComponent,ListaAsignaturaComponent],
+  declarations: [AgregarAsignaturaComponent,ListaAsignaturaComponent,HeaderComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
