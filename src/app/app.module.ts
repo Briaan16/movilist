@@ -14,11 +14,12 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 
 //firebase xd
 import { AngularFireModule} from '@angular/fire/compat';
-import { FirestoreModule } from '@angular/fire/firestore';  // Importa AngularFirestoreModule
+import { FirestoreModule, getFirestore, provideFirestore } from '@angular/fire/firestore';  // Importa AngularFirestoreModule
 import { environment } from 'src/environments/environment.prod';
 import { ReactiveFormsModule } from '@angular/forms';
 //modulo components, agregar listar asignaturas xd 
-import { ComponentsModule } from './components/components.module'; // Importa el módulo donde se declara
+import { ComponentsModule } from './components/components.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'; // Importa el módulo donde se declara
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +34,7 @@ import { ComponentsModule } from './components/components.module'; // Importa el
     ComponentsModule,  // Importa el módulo que contiene AgregarAsignaturaComponent
 
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient(), provideFirebaseApp(() => initializeApp({"projectId":"registrapp-d238a","appId":"1:580216273408:web:9a756c26c854be5943f6e5","storageBucket":"registrapp-d238a.firebasestorage.app","apiKey":"AIzaSyAdA_eRKcEdA8Q4ro7PcM9CpqVKL_rIbas","authDomain":"registrapp-d238a.firebaseapp.com","messagingSenderId":"580216273408"})), provideFirestore(() => getFirestore())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
