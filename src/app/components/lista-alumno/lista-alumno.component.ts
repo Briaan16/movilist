@@ -31,5 +31,8 @@ export class ListaAlumnoComponent  implements OnInit {
     const response = await this.alumnosService.deleteAlumno(alumno);
     console.log(response);
   }
+  goBack() {
+    window.history.back(); // Navega a la página anterior usando el historial del navegador
+  }
 
 }
