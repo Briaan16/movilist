@@ -5,19 +5,20 @@ import { ListaAsignaturaComponent } from './lista-asignatura/lista-asignatura.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';  // Importa IonicModule aquí
 import { HeaderComponent } from './header/header.component';
+import { ListaAlumnoComponent } from './lista-alumno/lista-alumno.component';
 
 
 
 
 @NgModule({
-  declarations: [AgregarAsignaturaComponent,ListaAsignaturaComponent,HeaderComponent],
+  declarations: [AgregarAsignaturaComponent,ListaAsignaturaComponent,HeaderComponent,ListaAlumnoComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     IonicModule,  // Asegúrate de incluir IonicModule aquí
   ],
   exports: [
-    AgregarAsignaturaComponent,ListaAsignaturaComponent
+    AgregarAsignaturaComponent,ListaAsignaturaComponent,ListaAlumnoComponent
     
   ]
 })

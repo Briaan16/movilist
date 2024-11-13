@@ -1,0 +1,10 @@
+<div class="places">
+  <div class="place" *ngFor="let alumno of alumnos">
+    <div class="info">
+      <h4>Nombre alumno: {{alumno.nombre}}</h4>
+      <p>Registro Presente: {{alumno.presente}}</p>
+      <p>Registro Ausente: {{alumno.ausente}}</p>
+      <button class="btn btn-outline-danger" (click)="onClickDelete(alumno)">Borrar</button>
+    </div>
+  </div>
+</div>
