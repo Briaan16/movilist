@@ -32,10 +32,17 @@
 
       <ion-icon name="person-circle" slot="end" size="large" class="ion-margin-end" routerLink="/perfil"></ion-icon>
     </ion-toolbar>
+      <!-- El botón "Atrás" fuera de la card y con posición fija en la pantalla -->
+  <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
+    <ion-icon slot="start" name="arrow-back"></ion-icon>
+    Atrás
+  </ion-button>
+
   </ion-header>
 
   <ion-content class="ion-padding" style="--background: #1a4066;">
-
+    <br>
+    <br>
     <!-- Aquí va la card con las asignaturas -->
     <app-lista-asignatura></app-lista-asignatura>
 
@@ -48,10 +55,5 @@
 
   </ion-content>
 
-  <!-- El botón "Atrás" fuera de la card y con posición fija en la pantalla -->
-  <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
-    <ion-icon slot="start" name="arrow-back"></ion-icon>
-    Atrás
-  </ion-button>
 
 </div>

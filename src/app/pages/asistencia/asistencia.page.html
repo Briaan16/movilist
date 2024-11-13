@@ -22,13 +22,9 @@
       </ion-item>
     </ion-list>
   </ion-content>
-       
-    <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
-    <ion-icon slot="start" name="arrow-back"></ion-icon>
-    Atrás
-  </ion-button>
-
 </ion-menu>
+
+
 
 <div class="ion-page" id="main-content">
   <ion-header>
@@ -39,6 +35,10 @@
       <ion-title>RegistrAPP</ion-title>
       <ion-icon name="person-circle" slot="end" size="large" class="ion-margin-end" routerLink="/perfil"></ion-icon>
     </ion-toolbar>
+    <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+      Atrás
+    </ion-button>
   </ion-header>
   
 

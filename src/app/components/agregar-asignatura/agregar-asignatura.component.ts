@@ -28,4 +28,6 @@ export class AgregarAsignaturaComponent  implements OnInit {
     const response = await this.AsignaturasService.agregarAsignatura(this.formulario.value);
     console.log(response)
   }
+
+  
 }
