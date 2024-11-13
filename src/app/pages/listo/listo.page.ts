@@ -1,43 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from 'src/app/services/dataservice.service';
 import { Hora} from 'src/app/interfaces/horafecha'
+import { LocaldbService } from 'src/app/services/localdb.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-listo',
   templateUrl: './listo.page.html',
   styleUrls: ['./listo.page.scss'],
 })
-export class ListoPage implements OnInit {
+export class ListoPage {
 
-  horas:Hora ={
-    utc_offset: '',
-    timezone: '',
-    day_of_week: 0,
-    day_of_year: 0,
-    datetime: '',
-    utc_datetime: '',
-    unixtime: 0,
-    raw_offset: 0,
-    week_number: 0,
-    dst: false,
-    abbreviation: '',
-    dst_offset: 0,
-    dst_from: '',
-    dst_until: '',
-    client_ip: '',
+
+  
+  constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
+
+
+  confirmarAsistencia() {
+    const fechaActual = new Date();
+    const nuevaAsistencia = {
+      fecha: fechaActual.toLocaleDateString(),
+      hora: fechaActual.toLocaleTimeString(),
+      nombre: 'usuario 1', // Nombre del alumno
+      institucion: 'Duoc UC',
+      curso: 'Informática'
+    };
+
+    // Guarda la asistencia en localStorage
+    this.localdbService.guardarAsistencia(nuevaAsistencia);
+
+    // Navega de regreso a la página principal del alumno
+    this.navCtrl.navigateRoot('/alumno');
   }
 
-  constructor(private dataService: DataserviceService) { }
-
-  ngOnInit() {
-    console.log("On Init");
-    this.dataService.getHora().subscribe(datos =>{
-      console.log(datos);
-      this.horas= datos;
-      console.log("MI (HORARIO/FECHA)");
-      console.log(this.horas);  
-    })
+  cancelar() {
+    // Regresa a la página principal sin guardar asistencia
+    this.navCtrl.back();
   }
+  
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador
   }

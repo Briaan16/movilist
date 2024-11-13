@@ -12,20 +12,20 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-text color="">
-          <h4>Su registro de asistencia fue ejecutado exitosamente en la fecha  {{horas.datetime}}
-             en la asignatura [INSERTE ASIGNATURA].</h4>
-        </ion-text>
-        <ion-button color="" routerLink="/inicio">
-          <ion-icon name="log-in-outline" slot="start"></ion-icon>
-          <span>Volver al Inicio</span>
+        <ion-button expand="full" color="success" style="margin-top: 20px;" (click)="confirmarAsistencia()">
+          Confirmar
+        </ion-button>
+    
+        <ion-button expand="full" color="light" style="margin-top: 10px;" (click)="cancelar()">
+          Cancelar
         </ion-button>
       </ion-card-content>
     </ion-card>
+    
   </div>
       <!-- Botón "Atrás" en la esquina superior izquierda -->
-      <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
-        <ion-icon slot="start" name="arrow-back"></ion-icon>
-        Atrás
-      </ion-button>
+    <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+      Atrás
+    </ion-button>
 </ion-content>
