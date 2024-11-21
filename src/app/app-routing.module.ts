@@ -32,10 +32,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then( m => m.PagesPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
