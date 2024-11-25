@@ -2,30 +2,32 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocaldbService {
-      //sacarlo del github del profe x2xp, de ahi se saca la función de guardar creo
   private _storage: Storage | null = null;
+
   constructor(private storage: Storage) {
     this.init();
-   }
+  }
 
-   async init(){
-    //If using, define drivers here: await this.storage.defineDrive(/*...*/);
+  async init() {
     const storage = await this.storage.create();
-    this._storage= storage;
-   }
+    this._storage = storage;
+  }
 
-   public guardar(key: string, value: any){
+  // Guardar datos en Ionic Storage
+  public guardar(key: string, value: any) {
     this._storage?.set(key, value);
-   }
-   
-   public async obtener(key: string ){
+  }
+
+  // Obtener datos de Ionic Storage
+  public async obtener(key: string) {
     const valor = await this._storage?.get(key);
     return valor;
-   }
-// Método para inicializar el historial de asistencias
+  }
+
+  // Método para inicializar el historial de asistencias
   initializeHistorial() {
     if (!localStorage.getItem('historialAsistencias')) {
       localStorage.setItem('historialAsistencias', JSON.stringify([])); // Inicializa el historial vacío
@@ -45,4 +47,19 @@ export class LocaldbService {
     return historialAsistencias ? JSON.parse(historialAsistencias) : [];
   }
 
+  // Guardar el perfil del usuario en Ionic Storage
+  guardarPerfil(usuario: { nombre: string; apellido: string; correo: string; rol: string }) {
+    this.guardar('perfilUsuario', usuario);
+  }
+
+  // Obtener el perfil del usuario desde Ionic Storage
+  async obtenerPerfil() {
+    const perfil = await this.obtener('perfilUsuario');
+    return perfil;
+  }
+
+  // Eliminar el perfil del usuario de Ionic Storage (cuando cierre sesión)
+  eliminarPerfil() {
+    this._storage?.remove('perfilUsuario');
+  }
 }

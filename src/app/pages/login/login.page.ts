@@ -1,10 +1,9 @@
-// login.page.ts
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario-log';
 import { LocaldbService } from '../../services/localdb.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { UserService } from '../../services/user.service'; // Asegúrate de importar el servicio
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -24,49 +23,58 @@ export class LoginPage implements OnInit {
     private db: LocaldbService,
     private router: Router,
     private toastController: ToastController,
-    private userService: UserService // Inyectamos el UserService
+    private userService: UserService
   ) {}
 
   ngOnInit() {}
 
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
+  async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
     const toast = await this.toastController.create({
-      message: 'Usuario o clave incorrecto',
+      message: message,
       duration: 1500,
       position: position,
       color: 'danger',
       header: '¡Error!',
       cssClass: 'texttoast',
     });
-
     await toast.present();
   }
 
   logear() {
-    const buscado = this.db.obtener(this.usr.correo);
-
-    buscado.then(datos => {
-      if (datos !== null) {
-        // Verificar credenciales
-        if (datos.correo === this.usr.correo && datos.password === this.usr.password) {
-          // Obtener el dominio del correo electrónico
+    // Verificamos si el usuario ya está registrado
+    this.db.obtener(this.usr.correo).then((datos) => {
+      if (datos) {
+        // Validar si las credenciales coinciden
+        if (datos.password === this.usr.password) {
           const emailDomain = this.getEmailDomain(this.usr.correo);
 
-          // Redirigir según el dominio del correo electrónico y almacenar el rol
-          if (emailDomain === 'duocuc.cl') {
-            this.userService.setRole('alumno'); // Guardar rol de alumno
+          // Establecer el perfil de usuario y rol según el dominio del correo
+          const usuario = {
+            nombre: datos.nombre,
+            apellido: datos.apellido,
+            correo: datos.correo,
+            rol: emailDomain === 'duocuc.cl' ? 'alumno' : 'profesor',
+          };
+
+          // Guardar el perfil del usuario en la base de datos local
+          this.db.guardarPerfil(usuario);
+
+          // Establecer el rol en el UserService
+          this.userService.setRole(usuario.rol);
+
+          // Redirigir al usuario según su rol
+          if (usuario.rol === 'alumno') {
             this.router.navigate(['/alumno']);
-          } else if (emailDomain === 'profesor.duoc.cl') {
-            this.userService.setRole('profesor'); // Guardar rol de profesor
+          } else if (usuario.rol === 'profesor') {
             this.router.navigate(['/asignaturas']);
-          } 
-        } else {  
-          // Mostrar mensaje de error si la contraseña es incorrecta
-          this.presentToast('top');
+          }
+        } else {
+          // Mostrar un mensaje si la contraseña es incorrecta
+          this.presentToast('top', 'Contraseña incorrecta');
         }
       } else {
-        // Mostrar mensaje de error si el usuario no se encuentra
-        this.presentToast('top');
+        // Mostrar un mensaje si el usuario no se encuentra registrado
+        this.presentToast('top', 'Usuario no encontrado');
       }
     });
   }

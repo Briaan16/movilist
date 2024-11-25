@@ -13,20 +13,28 @@
     </ion-avatar>
 
     <ion-button color="warning" class="photo-btn" size="small" shape="round">
-      <ion-icon  name="camera-outline"></ion-icon>
+      <ion-icon name="camera-outline"></ion-icon>
     </ion-button>
-    <h2>[NOMBRE DE USUARIO]</h2>
-    <div>ALUMNO/DOCENTE</div>
+
+    <h2>{{ usuario.nombre }}</h2> <!-- Mostrar el nombre del usuario -->
+    <div>{{ usuario.rol }}</div> <!-- Mostrar el rol del usuario -->
+    <div>{{ usuario.correo }}</div> <!-- Mostrar el rol del usuario -->
+    <div>{{ usuario.password }}</div> <!-- Mostrar el rol del usuario -->
+    <div>{{ usuario.apellido }}</div> <!-- Mostrar el rol del usuario -->
+    <div>{{ usuario.usuario }}</div> <!-- Mostrar el rol del usuario -->
+  
   </ion-card>
+
   <ion-card>
-    <ion-item button routerLink="/inicio" color="warning">
+    <ion-item button (click)="logout()" color="warning">
       <ion-label>Cerrar Sesión</ion-label> 
       <ion-icon name="log-out"></ion-icon>
     </ion-item>
   </ion-card>
-      <!-- Botón "Atrás" en la esquina superior izquierda -->
-      <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
-        <ion-icon slot="start" name="arrow-back"></ion-icon>
-        Atrás
-      </ion-button>
+
+  <!-- Botón "Atrás" en la esquina superior izquierda -->
+  <ion-button fill="clear" color="warning" (click)="goBack()" style="position: fixed; top: 60px; left: 10px;">
+    <ion-icon slot="start" name="arrow-back"></ion-icon>
+    Atrás
+  </ion-button>
 </ion-content>
