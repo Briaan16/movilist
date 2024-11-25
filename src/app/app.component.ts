@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './services/user.service'; // Asegúrate de importar el UserService
+import { UserService } from './services/user.service'; // Importar el UserService
 
 @Component({
   selector: 'app-root',
@@ -12,16 +12,25 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
-    const role = this.userService.getRole();
+  async ngOnInit() {
+    await this.checkUserRole(); // Usar la versión async
+  }
+
+  async checkUserRole() {
+    const role = await this.userService.getRole(); // Obtener el rol desde Ionic Storage
+    console.log('Rol recuperado:', role); // Verificar el valor del rol
+
     if (role === 'profesor') {
       this.isTeacher = true;
-      this.router.navigate(['/asignaturas']); // Redirige a la página del profesor
+      console.log('Rol es profesor. Redirigiendo a asignaturas...');
+      setTimeout(() => this.router.navigate(['/asignaturas']), 100); // Redirigir a asignaturas si es profesor
     } else if (role === 'alumno') {
       this.isTeacher = false;
-      this.router.navigate(['/alumno']); // Redirige a la página del alumno
+      console.log('Rol es alumno. Redirigiendo a asistencia...');
+      setTimeout(() => this.router.navigate(['/asistencia']), 100); // Redirigir a la página del alumno
     } else {
-      this.router.navigate(['/login']); // Redirige al login si no hay rol
+      console.log('No se encontró rol, redirigiendo al login...');
+      setTimeout(() => this.router.navigate(['/login']), 100); // Redirigir al login si no hay rol
     }
   }
 

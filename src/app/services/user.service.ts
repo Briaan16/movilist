@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
+import { LocaldbService } from './localdb.service'; // Importar el servicio LocaldbService
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
 
-  constructor() {}
+  constructor(private localdbService: LocaldbService) {}
 
-  // Obtener el rol del usuario desde localStorage
-  getRole(): string | null {
-    return localStorage.getItem('userRole');
+  // Obtener el rol del usuario desde Ionic Storage
+  async getRole(): Promise<string | null> {
+    return await this.localdbService.obtener('userRole');
   }
 
-  // Establecer el rol del usuario en localStorage
+  // Establecer el rol del usuario en Ionic Storage
   setRole(role: string): void {
-    localStorage.setItem('userRole', role);
+    this.localdbService.guardar('userRole', role);
   }
 
-  // Limpiar el rol del usuario de localStorage
+  // Limpiar el rol del usuario de Ionic Storage
   clearRole(): void {
-    localStorage.removeItem('userRole');
+    this.localdbService.eliminarPerfil(); // Limpiar el perfil, o crear un método 'clearRole' en LocaldbService
   }
 }
