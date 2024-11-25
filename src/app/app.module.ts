@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 //modulo components, agregar listar asignaturas xd 
 import { ComponentsModule } from './components/components.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'; // Importa el módulo donde se declara
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [AppComponent],

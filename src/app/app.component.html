@@ -1,8 +1,37 @@
-<ion-app>
-  <ion-router-outlet>
-  </ion-router-outlet>
-  <!-- Menu del profe -->
-  
-  <!-- Menu del alumno -->
-  
-</ion-app>
+<ion-menu contentId="main-content" *ngIf="isTeacher">
+  <ion-header>
+    <ion-toolbar style="--background: #f6cc26;">
+      <ion-title>Menú Profesor</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button routerLink="/asignaturas">
+        <ion-label>Asignaturas</ion-label>
+        <ion-icon name="library"></ion-icon>
+      </ion-item>
+      <!-- Otros elementos para el menú del profesor -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu contentId="main-content" *ngIf="isStudent">
+  <ion-header>
+    <ion-toolbar style="--background: #f6cc26;">
+      <ion-title>Menú Alumno</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button routerLink="/asistencia">
+        <ion-label>Ver asistencia</ion-label>
+        <ion-icon name="today"></ion-icon>
+      </ion-item>
+      <ion-item button routerLink="/reportar">
+        <ion-label>Reportar un problema</ion-label>
+        <ion-icon name="alert-circle"></ion-icon>
+      </ion-item>
+      <!-- Otros elementos para el menú del alumno -->
+    </ion-list>
+  </ion-content>
+</ion-menu>

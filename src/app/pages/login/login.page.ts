@@ -1,8 +1,10 @@
+// login.page.ts
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario-log';
 import { LocaldbService } from '../../services/localdb.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { UserService } from '../../services/user.service'; // Asegúrate de importar el servicio
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,6 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   usr: Usuario = {
     username: '',
     password: '',
@@ -22,7 +23,8 @@ export class LoginPage implements OnInit {
   constructor(
     private db: LocaldbService,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private userService: UserService // Inyectamos el UserService
   ) {}
 
   ngOnInit() {}
@@ -50,10 +52,12 @@ export class LoginPage implements OnInit {
           // Obtener el dominio del correo electrónico
           const emailDomain = this.getEmailDomain(this.usr.correo);
 
-          // Redirigir según el dominio del correo electrónico
+          // Redirigir según el dominio del correo electrónico y almacenar el rol
           if (emailDomain === 'duocuc.cl') {
+            this.userService.setRole('alumno'); // Guardar rol de alumno
             this.router.navigate(['/alumno']);
           } else if (emailDomain === 'profesor.duoc.cl') {
+            this.userService.setRole('profesor'); // Guardar rol de profesor
             this.router.navigate(['/asignaturas']);
           } 
         } else {  
@@ -71,6 +75,7 @@ export class LoginPage implements OnInit {
   getEmailDomain(email: string): string {
     return email.substring(email.lastIndexOf('@') + 1);
   }
+
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador
   }
