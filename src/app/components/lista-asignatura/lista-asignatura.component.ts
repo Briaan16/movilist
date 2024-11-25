@@ -37,10 +37,12 @@ export class ListaAsignaturaComponent implements OnInit {
 
   // Métodos de navegación
   goToAsistenciaGeneral() {
-    this.router.navigate(['/asistenciageneral']);
+    const data = { nombre:  this.asignaturas}; // Los datos que deseas enviar
+    this.router.navigate(['/asistenciageneral'], { state: data });
   }
 
-  goToCodigo() {
-    this.router.navigate(['/codigo']);
+  goToCodigo(nombre) {
+    const data = { nombre:  nombre }; // Los datos que deseas enviar
+    this.router.navigate(['/codigo'], { state: data});
   }
 }

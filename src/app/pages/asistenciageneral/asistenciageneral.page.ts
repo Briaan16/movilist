@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-asistenciageneral',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsistenciageneralPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      console.log(params); // { key1: 'value1', key2: 'value2' }
+    });
   }
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador

@@ -4,6 +4,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Share } from '@capacitor/share';
 import { LoadingController, Platform } from '@ionic/angular';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-codigo',
@@ -17,7 +18,8 @@ export class CodigoPage implements OnInit {
 
   constructor(
     private loadingController: LoadingController,
-    private platform: Platform
+    private platform: Platform,
+    private route: ActivatedRoute
   ) { }
 
   captureScreen() {
@@ -70,7 +72,16 @@ export class CodigoPage implements OnInit {
   }
 
   ngOnInit() {
+    // Acceder a los datos enviados con state
+    const state = window.history.state;
+    if (state && state.nombre) {
+      console.log(state.nombre); // Deberías ver el valor del nombre aquí
+      this.qrText = state.nombre;
+    } else {
+      console.log('No se recibieron datos.');
+    }
   }
+  
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador
   }
