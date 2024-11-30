@@ -16,14 +16,20 @@
       <ion-icon name="camera-outline"></ion-icon>
     </ion-button>
 
-    <h2>{{ usuario.nombre }}</h2> <!-- Mostrar el nombre del usuario -->
-    <div>{{ usuario.rol }}</div> <!-- Mostrar el rol del usuario -->
-    <div>{{ usuario.correo }}</div> <!-- Mostrar el rol del usuario -->
-    <div>{{ usuario.password }}</div> <!-- Mostrar el rol del usuario -->
-    <div>{{ usuario.apellido }}</div> <!-- Mostrar el rol del usuario -->
-    <div>{{ usuario.usuario }}</div> <!-- Mostrar el rol del usuario -->
+    <ion-card class="ion-text-center" style="max-width: 350px; margin: 0 auto; padding: 20px;">
+      <h3 style="color: #1a4066; font-weight: bold; margin-bottom: 20px;">Datos del Usuario</h3>
+      
+      <!-- Datos del usuario dentro de un ion-card -->
+      <div style="color: #0d3873; font-size: 16px; margin-bottom: 5px;"><strong>Rol:</strong> {{ usuario.rol }}</div>
+      <div style="color: #0d3873; font-size: 16px; margin-bottom: 5px;"><strong>Apellido:</strong> {{ usuario.apellido }}</div>
+      <div style="color: #0d3873; font-size: 16px; margin-bottom: 5px;"><strong>Usuario:</strong> {{ usuario.usuario }}</div>
+      <div style="color: #0d3873; font-size: 16px; margin-bottom: 5px;"><strong>Correo:</strong> {{ usuario.correo }}</div>
+      <div style="color: #0d3873; font-size: 16px; margin-bottom: 5px;">{{ usuario.password }}</div>
+    </ion-card>
+
+   </ion-card>
   
-  </ion-card>
+
 
   <ion-card>
     <ion-item button (click)="logout()" color="warning">
