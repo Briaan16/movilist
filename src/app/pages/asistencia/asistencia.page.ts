@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { LocaldbService } from 'src/app/services/localdb.service';
+import { LocaldbService } from 'src/app/services/localdb.service'; // Inyectar el servicio
 
 @Component({
   selector: 'app-asistencia',
@@ -8,22 +7,18 @@ import { LocaldbService } from 'src/app/services/localdb.service';
   styleUrls: ['./asistencia.page.scss'],
 })
 export class AsistenciaPage implements OnInit {
+  historialAsistencias: { fecha: string; hora: string; nombre: string; institucion: string; curso: string }[] = [];
 
-  historialAsistencias: { fecha: string, hora: string, nombre: string, institucion: string, curso: string }[] = [];
-  nombreUsuario: string = ''; // Nueva propiedad para almacenar el nombre del usuario
+  constructor(private localdbService: LocaldbService) {}
 
-  constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
-
-  ngOnInit() {
-    // Inicializa el historial de asistencias si es necesario
-    this.localdbService.initializeHistorial();
-
-    // Carga el historial de asistencias desde localStorage
-    this.historialAsistencias = this.localdbService.getHistorialAsistencias();
-
+  async ngOnInit() {
+    // Inicializa el historial de asistencias
+    await this.localdbService.initializeHistorial();
+    // Carga el historial de asistencias desde Ionic Storage
+    this.historialAsistencias = await this.localdbService.getHistorialAsistencias();
   }
+
   goBack() {
     window.history.back(); // Navega a la página anterior usando el historial del navegador
   }
-
 }
