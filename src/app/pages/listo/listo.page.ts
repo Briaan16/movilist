@@ -16,6 +16,11 @@ export class ListoPage {
   constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
 
+  irAHistorial() {
+    // Navegar a la página de historial de asistencia
+    this.navCtrl.navigateForward('/asistencia');
+  }
+  
   confirmarAsistencia() {
     const fechaActual = new Date();
     const nuevaAsistencia = {
