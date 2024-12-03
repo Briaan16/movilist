@@ -1,7 +1,5 @@
 <ion-app>
-  <ion-router-outlet id="main-content"></ion-router-outlet>
-
-  <!-- Menu del profe -->
+  <!-- Menu del profesor -->
   <ion-menu contentId="main-content" *ngIf="isTeacher">
     <ion-header>
       <ion-toolbar style="--background: #f6cc26;">
@@ -52,4 +50,6 @@
       </ion-list>
     </ion-content>
   </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

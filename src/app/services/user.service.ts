@@ -15,11 +15,13 @@ export class UserService {
 
   // Establecer el rol del usuario en Ionic Storage
   setRole(role: string): void {
+    console.log('Estableciendo rol:', role);  // Para debug
     this.localdbService.guardar('userRole', role);
   }
 
   // Limpiar el rol del usuario de Ionic Storage
   clearRole(): void {
-    this.localdbService.eliminarPerfil(); // Limpiar el perfil, o crear un método 'clearRole' en LocaldbService
+    console.log('Limpiando el rol del usuario');
+    this.localdbService.eliminarPerfil(); // Limpiar el perfil si es necesario
   }
 }

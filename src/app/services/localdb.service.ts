@@ -27,33 +27,17 @@ export class LocaldbService {
     return valor;
   }
 
-  // Método para inicializar el historial de asistencias en Ionic Storage
-  async initializeHistorial() {
-    const historialAsistencias = await this._storage?.get('historialAsistencias');
-    if (!historialAsistencias) {
-      await this._storage?.set('historialAsistencias', []); // Inicializa el historial vacío
-    }
+  // Método para obtener el rol del usuario
+  async obtenerRole() {
+    return await this._storage?.get('userRole');
   }
 
-  // Método para guardar una nueva asistencia en el historial
-  async guardarAsistencia(asistencia: { fecha: string; hora: string; nombre: string; institucion: string; curso: string }) {
-    const historialAsistencias = await this.getHistorialAsistencias(); // Obtiene el historial actual
-    historialAsistencias.push(asistencia); // Añade la nueva asistencia
-    await this._storage?.set('historialAsistencias', historialAsistencias); // Guarda el nuevo historial en Ionic Storage
-  }
-
-  // Método para obtener el historial de asistencias
-  async getHistorialAsistencias() {
-    const historialAsistencias = await this._storage?.get('historialAsistencias');
-    return historialAsistencias || [];
-  }
-
-  // Guardar el perfil del usuario en Ionic Storage
+  // Guardar el perfil del usuario
   guardarPerfil(usuario: { nombre: string; apellido: string; correo: string; rol: string }) {
     this.guardar('perfilUsuario', usuario);
   }
 
-  // Obtener el perfil del usuario desde Ionic Storage
+  // Obtener el perfil del usuario
   async obtenerPerfil() {
     const perfil = await this.obtener('perfilUsuario');
     return perfil;
@@ -62,5 +46,28 @@ export class LocaldbService {
   // Eliminar el perfil del usuario de Ionic Storage (cuando cierre sesión)
   async eliminarPerfil() {
     await this._storage?.remove('perfilUsuario');
+  }
+
+  // Métodos para manejar el historial de asistencias
+
+  // Inicializar el historial de asistencias
+  async initializeHistorial() {
+    const historialAsistencias = await this._storage?.get('historialAsistencias');
+    if (!historialAsistencias) {
+      await this._storage?.set('historialAsistencias', []); // Inicializa el historial vacío
+    }
+  }
+
+  // Obtener el historial de asistencias
+  async getHistorialAsistencias() {
+    const historialAsistencias = await this._storage?.get('historialAsistencias');
+    return historialAsistencias || []; // Si no existe, devuelve un array vacío
+  }
+
+  // Guardar una nueva asistencia
+  async guardarAsistencia(asistencia: { fecha: string; hora: string; nombre: string; institucion: string; curso: string }) {
+    const historialAsistencias = await this.getHistorialAsistencias(); // Obtiene el historial actual
+    historialAsistencias.push(asistencia); // Añade la nueva asistencia
+    await this._storage?.set('historialAsistencias', historialAsistencias); // Guarda el nuevo historial
   }
 }

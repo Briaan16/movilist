@@ -40,9 +40,9 @@ export class LoginPage implements OnInit {
     await toast.present();
   }
 
-  logear() {
+  async logear() {
     // Verificamos si el usuario ya está registrado
-    this.db.obtener(this.usr.correo).then((datos) => {
+    this.db.obtener(this.usr.correo).then(async (datos) => {
       if (datos) {
         // Validar si las credenciales coinciden
         if (datos.password === this.usr.password) {
@@ -64,9 +64,9 @@ export class LoginPage implements OnInit {
 
           // Redirigir al usuario según su rol
           if (usuario.rol === 'alumno') {
-            this.router.navigate(['/alumno']);
+            this.router.navigate(['/asistencia']); // Redirigir a la página de asistencia si es alumno
           } else if (usuario.rol === 'profesor') {
-            this.router.navigate(['/asignaturas']);
+            this.router.navigate(['/asignaturas']); // Redirigir a la página de asignaturas si es profesor
           }
         } else {
           // Mostrar un mensaje si la contraseña es incorrecta
