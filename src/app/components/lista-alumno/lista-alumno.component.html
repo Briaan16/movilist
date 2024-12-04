@@ -11,6 +11,9 @@
   </ion-card-header>
 
   <ion-card-content>
+    <!-- Botón para abrir el modal de agregar alumno -->
+    <ion-button color="primary" expand="block" (click)="openModal()">Agregar Alumno</ion-button>
+
     <div class="places">
       <div class="place" *ngFor="let alumno of alumnos">
         <ion-card class="alumno-card">
@@ -21,6 +24,13 @@
           <ion-card-content>
             <p><strong>Registro Presente:</strong> {{ alumno.presente }}</p>
             <p><strong>Registro Ausente:</strong> {{ alumno.ausente }}</p>
+
+            <!-- Mostrar el porcentaje de asistencia con respecto al total de clases -->
+            <p><strong>Asistencia:</strong> {{ calcularPorcentajeAsistencia(alumno) | number:'1.2-2' }}%</p>
+
+            <!-- Mostrar el total de clases de la asignatura -->
+            <p><strong>Clases Totales:</strong> {{ alumno.totalClases }}</p>
+
             <ion-button color="danger" fill="outline" expand="block" (click)="onClickDelete(alumno)">
               Borrar
             </ion-button>

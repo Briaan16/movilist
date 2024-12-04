@@ -7,7 +7,8 @@ import { LocaldbService } from 'src/app/services/localdb.service'; // Inyectar e
   styleUrls: ['./asistencia.page.scss'],
 })
 export class AsistenciaPage implements OnInit {
-  historialAsistencias: { fecha: string; hora: string; nombre: string; institucion: string; curso: string }[] = [];
+  historialAsistencias: { fecha: string; hora: string; institucion: string; curso: string }[] = [];
+  usuario: { nombre: string; apellido: string } | null = null;  // Variable para guardar el perfil del usuario
 
   constructor(private localdbService: LocaldbService) {}
 
@@ -16,6 +17,8 @@ export class AsistenciaPage implements OnInit {
     await this.localdbService.initializeHistorial();
     // Carga el historial de asistencias desde Ionic Storage
     this.historialAsistencias = await this.localdbService.getHistorialAsistencias();
+    // Carga el perfil del usuario logueado
+    this.usuario = await this.localdbService.obtenerPerfil();
   }
 
   goBack() {

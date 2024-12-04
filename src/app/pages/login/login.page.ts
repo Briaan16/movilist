@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
 
           // Redirigir al usuario según su rol
           if (usuario.rol === 'alumno') {
-            this.router.navigate(['/asistencia']); // Redirigir a la página de asistencia si es alumno
+            this.router.navigate(['/alumno']); // Redirigir a la página de asistencia si es alumno
           } else if (usuario.rol === 'profesor') {
             this.router.navigate(['/asignaturas']); // Redirigir a la página de asignaturas si es profesor
           }

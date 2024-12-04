@@ -11,14 +11,20 @@ export class AlumnosService {
 
   constructor(private firestore: Firestore) { }
 
-  addAlumno(alumno : Alumnos){
+  // Modificar addAlumno para incluir totalClases
+  addAlumno(alumno: Alumnos) {
     const alumnoRef = collection(this.firestore, 'alumnos');
-    return addDoc(alumnoRef, alumno);
+    return addDoc(alumnoRef, {
+      nombre: alumno.nombre,
+      presente: alumno.presente,
+      ausente: alumno.ausente,
+      totalClases: alumno.totalClases || 20  // Usamos 20 como un valor por defecto
+    });
   }
 
-  getAlumno(): Observable<Alumnos[]>{
+  getAlumno(): Observable<Alumnos[]> {
     const alumnoRef = collection(this.firestore, 'alumnos');
-    return collectionData(alumnoRef,{ idField: 'id'}) as Observable<Alumnos[]>;
+    return collectionData(alumnoRef, { idField: 'id' }) as Observable<Alumnos[]>;
   }
 
   // Eliminar un alumno

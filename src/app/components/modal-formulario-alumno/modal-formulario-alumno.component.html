@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Alumno</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="alumno.nombre" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Registro Presente</ion-label>
+    <ion-input [(ngModel)]="alumno.presente" type="number" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Registro Ausente</ion-label>
+    <ion-input [(ngModel)]="alumno.ausente" type="number" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Total Clases</ion-label>
+    <ion-input [(ngModel)]="alumno.totalClases" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="saveAlumno()">Guardar Alumno</ion-button>
+</ion-content>
