@@ -23,28 +23,17 @@
           <ion-card-title>Historial de Asistencia</ion-card-title>
         </ion-card-header>
 
-        <!-- Mostrar el porcentaje de asistencia por asignatura -->
-        <ion-card-content>
-          <ion-list>
-            <!-- Mostrar cada asignatura y su porcentaje de asistencia -->
-            <ion-item *ngFor="let asignatura of (porcentajeAsistenciasPorAsignatura | keyvalue)">
-              <ion-label>
-                <h2 class="asistencia-date">{{ asignatura.key }} - {{ asignatura.value | number: '1.0-2' }}%</h2>
-              </ion-label>
-            </ion-item>
-          </ion-list>
 
-          <!-- Listado de asistencias -->
-          <ion-list>
-            <ion-item *ngFor="let asistencia of historialAsistencias">
-              <ion-label>
-                <h2 class="asistencia-date">{{ asistencia.fecha }} - {{ asistencia.hora }}</h2>
-                <p>{{ usuario?.nombre }} - {{ asistencia.curso }}</p>
-                <p class="institucion">{{ asistencia.institucion }}</p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
+        <!-- Listado de asistencias -->
+        <ion-list>
+          <ion-item *ngFor="let asistencia of historialAsistencias">
+            <ion-label>
+              <h2 class="asistencia-date">{{ asistencia.fecha }} - {{ asistencia.hora }}</h2>
+              <p>{{ usuario?.nombre }} - {{ asistencia.curso }}</p>
+              <p class="institucion">{{ asistencia.institucion }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </ion-card>
     </div>
   </ion-content>
