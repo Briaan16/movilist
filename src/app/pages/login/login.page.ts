@@ -60,7 +60,12 @@ export class LoginPage implements OnInit {
           this.db.guardarPerfil(usuario);
 
           // Establecer el rol en el UserService
-          this.userService.setRole(usuario.rol);
+          console.log('Estableciendo rol en UserService:', usuario.rol); // Para depurar
+          await this.userService.setRole(usuario.rol);
+
+          // Verificar si el rol se guarda correctamente
+          const rolGuardado = await this.userService.getRole();
+          console.log('Rol recuperado después de establecer:', rolGuardado); // Verificar el rol guardado
 
           // Redirigir al usuario según su rol
           if (usuario.rol === 'alumno') {

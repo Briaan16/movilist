@@ -1,9 +1,9 @@
 <ion-app>
-  <!-- Menu del profesor -->
+  <!-- Menú del profesor -->
   <ion-menu contentId="main-content" *ngIf="isTeacher">
     <ion-header>
       <ion-toolbar style="--background: #f6cc26;">
-        <ion-title>Menú</ion-title>
+        <ion-title>Menú del Profesor</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding" style="--background: #1a4066;">
@@ -16,7 +16,6 @@
           <ion-label>Reportar un problema</ion-label>
           <ion-icon name="alert-circle"></ion-icon>
         </ion-item>
-        <!-- Cerrar sesión -->
         <ion-item button (click)="logout()">
           <ion-label>Cerrar sesión</ion-label>
           <ion-icon name="log-out"></ion-icon>
@@ -25,11 +24,11 @@
     </ion-content>
   </ion-menu>
 
-  <!-- Menu del alumno -->
+  <!-- Menú del alumno -->
   <ion-menu contentId="main-content" *ngIf="!isTeacher">
     <ion-header>
       <ion-toolbar style="--background: #f6cc26;">
-        <ion-title>Menú</ion-title>
+        <ion-title>Menú del Alumno</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding" style="--background: #1a4066;">
@@ -42,7 +41,6 @@
           <ion-label>Reportar Problema</ion-label>
           <ion-icon name="alert-circle"></ion-icon>
         </ion-item>
-        <!-- Cerrar sesión -->
         <ion-item button (click)="logout()">
           <ion-label>Cerrar sesión</ion-label>
           <ion-icon name="log-out"></ion-icon>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './services/user.service'; // Importar el UserService
+import { UserService } from './services/user.service';  // Asegúrate de importar el UserService
 
 @Component({
   selector: 'app-root',
@@ -8,31 +8,46 @@ import { UserService } from './services/user.service'; // Importar el UserServic
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isTeacher: boolean = false;  // Variable para determinar el rol del usuario
+  isTeacher: boolean = false;  // Inicializa como false (por defecto alumno)
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
 
-  async ngOnInit() {
-    await this.checkUserRole(); // Usar la versión async para obtener el rol
+  ngOnInit() {
+    // Escucha cambios en el rol del usuario
+    this.userService.role$.subscribe((role) => {
+      console.log('Rol actualizado desde el UserService:', role);
+      if (role === 'profesor') {
+        this.isTeacher = true;
+      } else if (role === 'alumno') {
+        this.isTeacher = false;
+      } else {
+        console.log('No se encontró rol, redirigiendo al login...');
+        this.router.navigate(['/login']);
+      }
+    });
+
+    // Verifica el rol inicial
+    this.checkUserRole();
   }
 
   async checkUserRole() {
-    const role = await this.userService.getRole(); // Obtener el rol desde Ionic Storage
-    console.log('Rol recuperado:', role);  // Verificar el valor del rol
-
+    const role = await this.userService.getRole(); // Obtén el rol desde el almacenamiento
+    console.log('Rol recuperado:', role);  // Verifica el valor del rol
+    // Esto es solo por si la suscripción no cubre alguna condición inicial
     if (role === 'profesor') {
-      this.isTeacher = true; // Si es profesor, mostrar el menú del profesor
+      this.isTeacher = true;
     } else if (role === 'alumno') {
-      this.isTeacher = false; // Si es alumno, mostrar el menú del alumno
+      this.isTeacher = false;
     } else {
-      console.log('No se encontró rol, redirigiendo al login...');
-      this.router.navigate(['/login']); // Redirigir al login si no hay rol
+      this.router.navigate(['/login']);
     }
   }
 
-  // Método para cerrar sesión
   logout() {
-    this.userService.clearRole(); // Limpiar el rol del usuario
-    this.router.navigate(['/login']); // Redirigir al login
+    this.userService.clearRole(); // Limpiar el rol
+    this.router.navigate(['/login']); // Redirige al login
   }
 }
